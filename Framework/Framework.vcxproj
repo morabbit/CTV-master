@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>.\Common\include;.\ContorlLayer\include;.\ContorlLayer\Communicator\include;.\ContorlLayer\Controler\include;.\DataBase\base\include;.\DataBase\mysql\include;.\DataBase\DataBaseCommon;.\DataBase\sqlite\include;.\DataSet\Container;.\DataSet\Dicom;.\DataSet\include;.\main\include;.\MemoryPool\include;.\Modules\include;.\Modules\CommonModule\include;.\Modules\Communicator\include;.\Modules\ImageRendering\include;.\TraceLog\include;.\ThirdParty\sqlite\sqlite-3.25.0300;.\ThirdParty\mysql-8.0.13\include;.\ThirdParty\boost_1_68_0;.\ThirdParty\mysql-8.0.13\mysql-connector\include\mysqlx;.\ThirdParty\mysql-8.0.13\mysql-connector\include\jdbc;.\ThirdParty\VTK\debug\include\vtk-8.1;.\ThirdParty\ITK\InsightToolkit-4.13.0_out\include\ITK-4.13;.\ThirdParty\dcmtk-3.6.3-out\include;.\ThirdParty\libpng-1.6.34\include;.\ThirdParty\libtiff-4.0.9\include;.\ThirdParty\zlib-1.2.11\include;.\ThirdParty\OpenCV\Debug\include;.\ThirdParty\cpd\out_debug\include;.\ThirdParty\eigen3.3.4;$(IncludePath)</IncludePath>
+    <LibraryPath>.\plugin;.\ThirdParty\sqlite\x64;.\ThirdParty\mysql-8.0.13\lib;.\ThirdParty\mysql-8.0.13\mysql-connector\lib64;.\ThirdParty\mysql-8.0.13\mysql-connector\lib64\vs14;.\ThirdParty\VTK\debug\lib;.\ThirdParty\VTK\debug\bin;.\ThirdParty\ITK\InsightToolkit-4.13.0_out\lib\Debug;.\ThirdParty\dcmtk-3.6.3-out\debug\lib;.\ThirdParty\libpng-1.6.34\lib;.\ThirdParty\libtiff-4.0.9\lib;.\ThirdParty\zlib-1.2.11\lib;.\ThirdParty\OpenCV\Debug\lib;.\ThirdParty\cpd\out_debug\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>.\Common\include;.\ContorlLayer\include;.\ContorlLayer\Communicator\include;.\ContorlLayer\Controler\include;.\DataBase\base\include;.\DataBase\mysql\include;.\DataBase\DataBaseCommon;.\DataBase\sqlite\include;.\DataSet\Container;.\DataSet\Dicom;.\DataSet\include;.\main\include;.\MemoryPool\include;.\Modules\include;.\Modules\CommonModule\include;.\Modules\Communicator\include;.\Modules\ImageRendering\include;.\TraceLog\include;.\ThirdParty\sqlite\sqlite-3.25.0300;.\ThirdParty\mysql-8.0.13\include;.\ThirdParty\boost_1_68_0;.\ThirdParty\mysql-8.0.13\mysql-connector\include\mysqlx;.\ThirdParty\mysql-8.0.13\mysql-connector\include\jdbc;.\ThirdParty\VTK\release\include\vtk-8.1;.\ThirdParty\ITK\InsightToolkit-4.13.0_out\include\ITK-4.13;.\ThirdParty\dcmtk-3.6.3-out\include;.\ThirdParty\libpng-1.6.34\include;.\ThirdParty\libtiff-4.0.9\include;.\ThirdParty\zlib-1.2.11\include;.\ThirdParty\OpenCV\Release\include;.\ThirdParty\cpd\out_release\include;.\ThirdParty\eigen3.3.4;$(IncludePath)</IncludePath>
+    <LibraryPath>.\plugin;.\ThirdParty\sqlite\x64;.\ThirdParty\mysql-8.0.13\lib;.\ThirdParty\mysql-8.0.13\mysql-connector\lib64\vs14;.\ThirdParty\mysql-8.0.13\mysql-connector\lib64;.\ThirdParty\VTK\release\lib;.\ThirdParty\VTK\release\bin;.\ThirdParty\ITK\InsightToolkit-4.13.0_out\lib\Release;.\ThirdParty\dcmtk-3.6.3-out\release\lib;.\ThirdParty\libpng-1.6.34\lib;.\ThirdParty\libtiff-4.0.9\lib;.\ThirdParty\zlib-1.2.11\lib;.\ThirdParty\OpenCV\Release\lib;.\ThirdParty\cpd\out_release\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>;_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;libmysql.lib;mysqlclient.lib;mysqlrouter_lib.lib;mysqlservices.lib;sqlite3.lib;libeay32.lib;mysqlcppconn-static.lib;mysqlcppconn.lib;mysqlcppconn8-static.lib;mysqlcppconn8.lib;ssleay32.lib;QVTKWidgetPlugin.lib;QVTKWidgetPlugind.lib;vtkalglib-8.1.lib;vtkChartsCore-8.1.lib;vtkCommonColor-8.1.lib;vtkCommonComputationalGeometry-8.1.lib;vtkCommonCore-8.1.lib;vtkCommonDataModel-8.1.lib;vtkCommonExecutionModel-8.1.lib;vtkCommonMath-8.1.lib;vtkCommonMisc-8.1.lib;vtkCommonSystem-8.1.lib;vtkCommonTransforms-8.1.lib;vtkDICOM-8.1.lib;vtkDICOMParser-8.1.lib;vtkDomainsChemistry-8.1.lib;vtkDomainsChemistryOpenGL2-8.1.lib;vtkexoIIc-8.1.lib;vtkexpat-8.1.lib;vtkFiltersAMR-8.1.lib;vtkFiltersCore-8.1.lib;vtkFiltersExtraction-8.1.lib;vtkFiltersFlowPaths-8.1.lib;vtkFiltersGeneral-8.1.lib;vtkFiltersGeneric-8.1.lib;vtkFiltersGeometry-8.1.lib;vtkFiltersHybrid-8.1.lib;vtkFiltersHyperTree-8.1.lib;vtkFiltersImaging-8.1.lib;vtkFiltersModeling-8.1.lib;vtkFiltersParallel-8.1.lib;vtkFiltersParallelImaging-8.1.lib;vtkFiltersPoints-8.1.lib;vtkFiltersProgrammable-8.1.lib;vtkFiltersSelection-8.1.lib;vtkFiltersSMP-8.1.lib;vtkFiltersSources-8.1.lib;vtkFiltersStatistics-8.1.lib;vtkFiltersTexture-8.1.lib;vtkFiltersTopology-8.1.lib;vtkFiltersVerdict-8.1.lib;vtkfreetype-8.1.lib;vtkGeovisCore-8.1.lib;vtkgl2ps-8.1.lib;vtkglew-8.1.lib;vtkGUISupportQt-8.1.lib;vtkGUISupportQtOpenGL-8.1.lib;vtkGUISupportQtSQL-8.1.lib;vtkhdf5-8.1.lib;vtkhdf5_hl-8.1.lib;vtkImagingColor-8.1.lib;vtkImagingCore-8.1.lib;vtkImagingFourier-8.1.lib;vtkImagingGeneral-8.1.lib;vtkImagingHybrid-8.1.lib;vtkImagingMath-8.1.lib;vtkImagingMorphological-8.1.lib;vtkImagingSources-8.1.lib;vtkImagingStatistics-8.1.lib;vtkImagingStencil-8.1.lib;vtkInfovisCore-8.1.lib;vtkInfovisLayout-8.1.lib;vtkInteractionImage-8.1.lib;vtkInteractionStyle-8.1.lib;vtkInteractionWidgets-8.1.lib;vtkIOAMR-8.1.lib;vtkIOCore-8.1.lib;vtkIOEnSight-8.1.lib;vtkIOExodus-8.1.lib;vtkIOExport-8.1.lib;vtkIOExportOpenGL2-8.1.lib;vtkIOGeometry-8.1.lib;vtkIOImage-8.1.lib;vtkIOImport-8.1.lib;vtkIOInfovis-8.1.lib;vtkIOLegacy-8.1.lib;vtkIOLSDyna-8.1.lib;vtkIOMINC-8.1.lib;vtkIOMovie-8.1.lib;vtkIONetCDF-8.1.lib;vtkIOParallel-8.1.lib;vtkIOParallelXML-8.1.lib;vtkIOPLY-8.1.lib;vtkIOSQL-8.1.lib;vtkIOTecplotTable-8.1.lib;vtkIOVideo-8.1.lib;vtkIOXML-8.1.lib;vtkIOXMLParser-8.1.lib;vtkjpeg-8.1.lib;vtkjsoncpp-8.1.lib;vtklibharu-8.1.lib;vtklibxml2-8.1.lib;vtkLocalExample-8.1.lib;vtklz4-8.1.lib;vtkmetaio-8.1.lib;vtkNetCDF-8.1.lib;vtknetcdfcpp-8.1.lib;vtkoggtheora-8.1.lib;vtkParallelCore-8.1.lib;vtkpng-8.1.lib;vtkproj4-8.1.lib;vtkRenderingAnnotation-8.1.lib;vtkRenderingContext2D-8.1.lib;vtkRenderingContextOpenGL2-8.1.lib;vtkRenderingCore-8.1.lib;vtkRenderingFreeType-8.1.lib;vtkRenderingGL2PSOpenGL2-8.1.lib;vtkRenderingImage-8.1.lib;vtkRenderingLabel-8.1.lib;vtkRenderingLOD-8.1.lib;vtkRenderingOpenGL2-8.1.lib;vtkRenderingQt-8.1.lib;vtkRenderingVolume-8.1.lib;vtkRenderingVolumeAMR-8.1.lib;vtkRenderingVolumeOpenGL2-8.1.lib;vtksqlite-8.1.lib;vtksys-8.1.lib;vtkTestingRendering-8.1.lib;vtktiff-8.1.lib;vtkverdict-8.1.lib;vtkViewsContext2D-8.1.lib;vtkViewsCore-8.1.lib;vtkViewsInfovis-8.1.lib;vtkViewsQt-8.1.lib;vtkzlib-8.1.lib;ITKBiasCorrection-4.13d.lib;ITKBioCell-4.13d.lib;ITKCommon-4.13d.lib;ITKDICOMParser-4.13d.lib;itkdouble-conversion-4.13d.lib;ITKEXPAT-4.13d.lib;ITKFEM-4.13d.lib;itkgdcmcharls-4.13d.lib;itkgdcmCommon-4.13d.lib;itkgdcmDICT-4.13d.lib;itkgdcmDSED-4.13d.lib;itkgdcmIOD-4.13d.lib;itkgdcmjpeg12-4.13d.lib;itkgdcmjpeg16-4.13d.lib;itkgdcmjpeg8-4.13d.lib;itkgdcmMEXD-4.13d.lib;itkgdcmMSFF-4.13d.lib;itkgdcmopenjp2-4.13d.lib;itkgdcmsocketxx-4.13d.lib;ITKgiftiio-4.13d.lib;ITKGPUAnisotropicSmoothing-4.13d.lib;ITKGPUCommon-4.13d.lib;ITKGPUFiniteDifference-4.13d.lib;ITKGPUImageFilterBase-4.13d.lib;ITKGPUPDEDeformableRegistration-4.13d.lib;ITKGPUSmoothing-4.13d.lib;ITKGPUThresholding-4.13d.lib;ITKIOBioRad-4.13d.lib;ITKIOBMP-4.13d.lib;ITKIOBruker-4.13d.lib;ITKIOCSV-4.13d.lib;ITKIOGDCM-4.13d.lib;ITKIOGE-4.13d.lib;ITKIOGIPL-4.13d.lib;ITKIOHDF5-4.13d.lib;ITKIOImageBase-4.13d.lib;ITKIOIPL-4.13d.lib;ITKIOJPEG-4.13d.lib;ITKIOLSM-4.13d.lib;ITKIOMesh-4.13d.lib;ITKIOMeta-4.13d.lib;ITKIOMINC-4.13d.lib;ITKIOMRC-4.13d.lib;ITKIONIFTI-4.13d.lib;ITKIONRRD-4.13d.lib;ITKIOPNG-4.13d.lib;ITKIOSiemens-4.13d.lib;ITKIOSpatialObjects-4.13d.lib;ITKIOStimulate-4.13d.lib;ITKIOTIFF-4.13d.lib;ITKIOTransformBase-4.13d.lib;ITKIOTransformHDF5-4.13d.lib;ITKIOTransformInsightLegacy-4.13d.lib;ITKIOTransformMatlab-4.13d.lib;ITKIOVTK-4.13d.lib;ITKIOXML-4.13d.lib;itkjpeg-4.13d.lib;ITKKLMRegionGrowing-4.13d.lib;ITKLabelMap-4.13d.lib;itklbfgs-4.13d.lib;ITKMesh-4.13d.lib;ITKMetaIO-4.13d.lib;itkminc2-4.13d.lib;itknetlib-4.13d.lib;itkNetlibSlatec-4.13d.lib;ITKniftiio-4.13d.lib;ITKNrrdIO-4.13d.lib;itkopenjpeg-4.13d.lib;ITKOptimizers-4.13d.lib;ITKOptimizersv4-4.13d.lib;ITKPath-4.13d.lib;ITKPolynomials-4.13d.lib;ITKQuadEdgeMesh-4.13d.lib;ITKSpatialObjects-4.13d.lib;ITKStatistics-4.13d.lib;itksys-4.13d.lib;itktestlib-4.13d.lib;ITKTransform-4.13d.lib;ITKTransformFactory-4.13d.lib;itkv3p_netlib-4.13d.lib;itkvcl-4.13d.lib;ITKVideoCore-4.13d.lib;ITKVideoIO-4.13d.lib;itkvnl-4.13d.lib;ITKVNLInstantiation-4.13d.lib;itkvnl_algo-4.13d.lib;ITKVTK-4.13d.lib;ITKVtkGlue-4.13d.lib;ITKWatersheds-4.13d.lib;ITKznz-4.13d.lib;libitkhdf5_cpp_Dd.lib;libitkhdf5_Dd.lib;charls.lib;cmr.lib;dcmdata.lib;dcmdsig.lib;dcmfg.lib;dcmimage.lib;dcmimgle.lib;dcmiod.lib;dcmjpeg.lib;dcmjpls.lib;dcmnet.lib;dcmpmap.lib;dcmpstat.lib;dcmqrdb.lib;dcmrt.lib;dcmseg.lib;dcmsr.lib;dcmtls.lib;dcmtract.lib;dcmwlm.lib;i2d.lib;ijg12.lib;ijg16.lib;ijg8.lib;oflog.lib;ofstd.lib;ws2_32.lib;
+Rpcrt4.lib
+;Iphlpapi.lib;netapi32.lib;libpng_d.lib;libtiff_d.lib;zlib_d.lib;opencv_calib3d341d.lib;opencv_core341d.lib;opencv_dnn341d.lib;opencv_features2d341d.lib;opencv_flann341d.lib;opencv_highgui341d.lib;opencv_imgcodecs341d.lib;opencv_imgproc341d.lib;opencv_ml341d.lib;opencv_objdetect341d.lib;opencv_photo341d.lib;opencv_shape341d.lib;opencv_stitching341d.lib;opencv_superres341d.lib;opencv_video341d.lib;opencv_videoio341d.lib;opencv_videostab341d.lib;opencv_world341d.lib;cpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>;_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;D:\mysql-8.0.13\bin;D:\mysql-8.0.13\lib;D:\mysql-8.0.13\lib\plugin;D:\mysql-8.0.13\lib\plugin\debug;D:\mysql-8.0.13\mysql-connector\lib64;D:\mysql-8.0.13\mysql-connector\lib64\vs14;D:\桌面\Framework\Framework\plugin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;libmysql.lib;mysqlclient.lib;mysqlrouter_lib.lib;mysqlservices.lib;sqlite3.lib;libeay32.lib;mysqlcppconn-static.lib;mysqlcppconn.lib;mysqlcppconn8-static.lib;mysqlcppconn8.lib;ssleay32.lib;QVTKWidgetPlugin.lib;vtkalglib-8.1.lib;vtkChartsCore-8.1.lib;vtkCommonColor-8.1.lib;vtkCommonComputationalGeometry-8.1.lib;vtkCommonCore-8.1.lib;vtkCommonDataModel-8.1.lib;vtkCommonExecutionModel-8.1.lib;vtkCommonMath-8.1.lib;vtkCommonMisc-8.1.lib;vtkCommonSystem-8.1.lib;vtkCommonTransforms-8.1.lib;vtkDICOM-8.1.lib;vtkDICOMParser-8.1.lib;vtkDomainsChemistry-8.1.lib;vtkDomainsChemistryOpenGL2-8.1.lib;vtkexoIIc-8.1.lib;vtkexpat-8.1.lib;vtkFiltersAMR-8.1.lib;vtkFiltersCore-8.1.lib;vtkFiltersExtraction-8.1.lib;vtkFiltersFlowPaths-8.1.lib;vtkFiltersGeneral-8.1.lib;vtkFiltersGeneric-8.1.lib;vtkFiltersGeometry-8.1.lib;vtkFiltersHybrid-8.1.lib;vtkFiltersHyperTree-8.1.lib;vtkFiltersImaging-8.1.lib;vtkFiltersModeling-8.1.lib;vtkFiltersParallel-8.1.lib;vtkFiltersParallelImaging-8.1.lib;vtkFiltersPoints-8.1.lib;vtkFiltersProgrammable-8.1.lib;vtkFiltersSelection-8.1.lib;vtkFiltersSMP-8.1.lib;vtkFiltersSources-8.1.lib;vtkFiltersStatistics-8.1.lib;vtkFiltersTexture-8.1.lib;vtkFiltersTopology-8.1.lib;vtkFiltersVerdict-8.1.lib;vtkfreetype-8.1.lib;vtkGeovisCore-8.1.lib;vtkgl2ps-8.1.lib;vtkglew-8.1.lib;vtkGUISupportQt-8.1.lib;vtkGUISupportQtOpenGL-8.1.lib;vtkGUISupportQtSQL-8.1.lib;vtkhdf5-8.1.lib;vtkhdf5_hl-8.1.lib;vtkImagingColor-8.1.lib;vtkImagingCore-8.1.lib;vtkImagingFourier-8.1.lib;vtkImagingGeneral-8.1.lib;vtkImagingHybrid-8.1.lib;vtkImagingMath-8.1.lib;vtkImagingMorphological-8.1.lib;vtkImagingSources-8.1.lib;vtkImagingStatistics-8.1.lib;vtkImagingStencil-8.1.lib;vtkInfovisCore-8.1.lib;vtkInfovisLayout-8.1.lib;vtkInteractionImage-8.1.lib;vtkInteractionStyle-8.1.lib;vtkInteractionWidgets-8.1.lib;vtkIOAMR-8.1.lib;vtkIOCore-8.1.lib;vtkIOEnSight-8.1.lib;vtkIOExodus-8.1.lib;vtkIOExport-8.1.lib;vtkIOExportOpenGL2-8.1.lib;vtkIOGeometry-8.1.lib;vtkIOImage-8.1.lib;vtkIOImport-8.1.lib;vtkIOInfovis-8.1.lib;vtkIOLegacy-8.1.lib;vtkIOLSDyna-8.1.lib;vtkIOMINC-8.1.lib;vtkIOMovie-8.1.lib;vtkIONetCDF-8.1.lib;vtkIOParallel-8.1.lib;vtkIOParallelXML-8.1.lib;vtkIOPLY-8.1.lib;vtkIOSQL-8.1.lib;vtkIOTecplotTable-8.1.lib;vtkIOVideo-8.1.lib;vtkIOXML-8.1.lib;vtkIOXMLParser-8.1.lib;vtkjpeg-8.1.lib;vtkjsoncpp-8.1.lib;vtklibharu-8.1.lib;vtklibxml2-8.1.lib;vtkLocalExample-8.1.lib;vtklz4-8.1.lib;vtkmetaio-8.1.lib;vtkNetCDF-8.1.lib;vtknetcdfcpp-8.1.lib;vtkoggtheora-8.1.lib;vtkParallelCore-8.1.lib;vtkpng-8.1.lib;vtkproj4-8.1.lib;vtkRenderingAnnotation-8.1.lib;vtkRenderingContext2D-8.1.lib;vtkRenderingContextOpenGL2-8.1.lib;vtkRenderingCore-8.1.lib;vtkRenderingFreeType-8.1.lib;vtkRenderingGL2PSOpenGL2-8.1.lib;vtkRenderingImage-8.1.lib;vtkRenderingLabel-8.1.lib;vtkRenderingLOD-8.1.lib;vtkRenderingOpenGL2-8.1.lib;vtkRenderingQt-8.1.lib;vtkRenderingVolume-8.1.lib;vtkRenderingVolumeAMR-8.1.lib;vtkRenderingVolumeOpenGL2-8.1.lib;vtksqlite-8.1.lib;vtksys-8.1.lib;vtkTestingRendering-8.1.lib;vtktiff-8.1.lib;vtkverdict-8.1.lib;vtkViewsContext2D-8.1.lib;vtkViewsCore-8.1.lib;vtkViewsInfovis-8.1.lib;vtkViewsQt-8.1.lib;vtkzlib-8.1.lib;ITKBiasCorrection-4.13.lib;ITKBioCell-4.13.lib;ITKCommon-4.13.lib;ITKDICOMParser-4.13.lib;itkdouble-conversion-4.13.lib;ITKEXPAT-4.13.lib;ITKFEM-4.13.lib;itkgdcmcharls-4.13.lib;itkgdcmCommon-4.13.lib;itkgdcmDICT-4.13.lib;itkgdcmDSED-4.13.lib;itkgdcmIOD-4.13.lib;itkgdcmjpeg12-4.13.lib;itkgdcmjpeg16-4.13.lib;itkgdcmjpeg8-4.13.lib;itkgdcmMEXD-4.13.lib;itkgdcmMSFF-4.13.lib;itkgdcmopenjp2-4.13.lib;itkgdcmsocketxx-4.13.lib;ITKgiftiio-4.13.lib;ITKGPUAnisotropicSmoothing-4.13.lib;ITKGPUCommon-4.13.lib;ITKGPUFiniteDifference-4.13.lib;ITKGPUImageFilterBase-4.13.lib;ITKGPUPDEDeformableRegistration-4.13.lib;ITKGPUSmoothing-4.13.lib;ITKGPUThresholding-4.13.lib;ITKIOBioRad-4.13.lib;ITKIOBMP-4.13.lib;ITKIOBruker-4.13.lib;ITKIOCSV-4.13.lib;ITKIOGDCM-4.13.lib;ITKIOGE-4.13.lib;ITKIOGIPL-4.13.lib;ITKIOHDF5-4.13.lib;ITKIOImageBase-4.13.lib;ITKIOIPL-4.13.lib;ITKIOJPEG-4.13.lib;ITKIOLSM-4.13.lib;ITKIOMesh-4.13.lib;ITKIOMeta-4.13.lib;ITKIOMINC-4.13.lib;ITKIOMRC-4.13.lib;ITKIONIFTI-4.13.lib;ITKIONRRD-4.13.lib;ITKIOPNG-4.13.lib;ITKIOSiemens-4.13.lib;ITKIOSpatialObjects-4.13.lib;ITKIOStimulate-4.13.lib;ITKIOTIFF-4.13.lib;ITKIOTransformBase-4.13.lib;ITKIOTransformHDF5-4.13.lib;ITKIOTransformInsightLegacy-4.13.lib;ITKIOTransformMatlab-4.13.lib;ITKIOVTK-4.13.lib;ITKIOXML-4.13.lib;itkjpeg-4.13.lib;ITKKLMRegionGrowing-4.13.lib;ITKLabelMap-4.13.lib;itklbfgs-4.13.lib;ITKMesh-4.13.lib;ITKMetaIO-4.13.lib;itkminc2-4.13.lib;itknetlib-4.13.lib;itkNetlibSlatec-4.13.lib;ITKniftiio-4.13.lib;ITKNrrdIO-4.13.lib;ITKOptimizers-4.13.lib;ITKOptimizersv4-4.13.lib;ITKPath-4.13.lib;ITKPolynomials-4.13.lib;ITKQuadEdgeMesh-4.13.lib;ITKSpatialObjects-4.13.lib;ITKStatistics-4.13.lib;itksys-4.13.lib;itktestlib-4.13.lib;ITKTransform-4.13.lib;ITKTransformFactory-4.13.lib;itkv3p_netlib-4.13.lib;itkvcl-4.13.lib;ITKVideoCore-4.13.lib;ITKVideoIO-4.13.lib;itkvnl-4.13.lib;ITKVNLInstantiation-4.13.lib;itkvnl_algo-4.13.lib;ITKVTK-4.13.lib;ITKVtkGlue-4.13.lib;ITKWatersheds-4.13.lib;ITKznz-4.13.lib;libitkhdf5.lib;libitkhdf5_cpp.lib;charls.lib;cmr.lib;dcmdata.lib;dcmdsig.lib;dcmfg.lib;dcmimage.lib;dcmimgle.lib;dcmiod.lib;dcmjpeg.lib;dcmjpls.lib;dcmnet.lib;dcmpmap.lib;dcmpstat.lib;dcmqrdb.lib;dcmrt.lib;dcmseg.lib;dcmsr.lib;dcmtls.lib;dcmtract.lib;dcmwlm.lib;i2d.lib;ijg12.lib;ijg16.lib;ijg8.lib;oflog.lib;ofstd.lib;ws2_32.lib;Rpcrt4.lib;Iphlpapi.lib;netapi32.lib;libpng_o.lib;libtiff_o.lib;zlib_o.lib;opencv_calib3d341.lib;opencv_core341.lib;opencv_dnn341.lib;opencv_features2d341.lib;opencv_flann341.lib;opencv_highgui341.lib;opencv_imgcodecs341.lib;opencv_imgproc341.lib;opencv_ml341.lib;opencv_objdetect341.lib;opencv_photo341.lib;opencv_shape341.lib;opencv_stitching341.lib;opencv_superres341.lib;opencv_video341.lib;opencv_videoio341.lib;opencv_videostab341.lib;opencv_world341.lib;cpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Common\src\CommonFunction.cpp" />
+    <ClCompile Include="Common\src\ParseVariableparameter.cpp" />
+    <ClCompile Include="ContorlLayer\Communicator\src\CommonLayer.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\CalibrationController.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\DisplayMessage.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\ImageFilterContorller.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\MathematicalGeometryCTL.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\RendringControllerBase.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\RoutePlanningContorller.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\VolumeProperty.cpp" />
+    <ClCompile Include="ContorlLayer\Controler\src\VolumeRenderController.cpp" />
+    <ClCompile Include="ContorlLayer\DB\src\DicomHeadTable.cpp" />
+    <ClCompile Include="DataBase\base\src\BasicResultSet.cpp" />
+    <ClCompile Include="DataBase\base\src\CreateTableColum.cpp" />
+    <ClCompile Include="DataBase\base\src\DataBaseObject.cpp" />
+    <ClCompile Include="DataBase\base\src\DataBaseSelectColumn.cpp" />
+    <ClCompile Include="DataBase\base\src\DBContentClause.cpp" />
+    <ClCompile Include="DataBase\base\src\DBContentValues.cpp" />
+    <ClCompile Include="DataBase\mysql\src\MysqlBDatebaseObject.cpp" />
+    <ClCompile Include="DataBase\mysql\src\MysqlDataBase.cpp" />
+    <ClCompile Include="DataBase\mysql\src\MysqlResultSet.cpp" />
+    <ClCompile Include="DataBase\sqlite\src\SqliteDataBase.cpp" />
+    <ClCompile Include="DataBase\sqlite\src\SqliteResultSet.cpp" />
+    <ClCompile Include="DataSet\Dicom\MathGeometry.cpp" />
+    <ClCompile Include="DataSet\src\MathGeometry.cpp" />
+    <ClCompile Include="DataSet\src\MathGeometryNode.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_AboutUs.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_AddDateWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_CasePlanTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_CloseDialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_DicomWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_FileWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_GradientOpacityGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_ImageGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_InfoTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_LoginPanel.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_LoginWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_MainWindow.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_ModuleWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_PathMgr.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_PathTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_PatientCaseAddDialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_PatientCaseTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_RawDataTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_RenderWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_SaveWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_ScalarColorMappingGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_ScalarOpacityMappingGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_TwoDcode.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_VPSettingWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_VTKGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_VTKShow3DWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_Warning.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_AboutUs.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_AddDateWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_CasePlanTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_CloseDialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_DicomWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_FileWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_GradientOpacityGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_ImageGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_InfoTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_LoginPanel.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_LoginWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_MainWindow.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_ModuleWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_PathMgr.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_PathTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_PatientCaseTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_RawDataTableWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_RenderWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_SaveWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_ScalarColorMappingGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_ScalarOpacityMappingGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_TwoDcode.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_VPSettingWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_VTKGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_VTKShow3DWidget.cpp" />
+    <ClCompile Include="main\src\Farmework.cpp" />
+    <ClCompile Include="main\src\pch.cpp" />
+    <ClCompile Include="MemoryPool\src\MemoryChunk.cpp" />
+    <ClCompile Include="MemoryPool\src\MemoryPool.cpp" />
+    <ClCompile Include="MemoryPool\src\StaticMemory.cpp" />
+    <ClCompile Include="Modules\CalibrationPlate\src\BasicImageProcessing.cpp" />
+    <ClCompile Include="Modules\CalibrationPlate\src\ClearPointProcessing.cpp" />
+    <ClCompile Include="Modules\CalibrationPlate\src\ExternalCalibrationProcessing.cpp" />
+    <ClCompile Include="Modules\CalibrationPlate\src\ImagePointsFilterProcessing.cpp" />
+    <ClCompile Include="Modules\CalibrationPlate\src\OrderingProcessing.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\BasicImageFilterObject.cxx" />
+    <ClCompile Include="Modules\ImageFilter\src\CBImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\CharImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\DataTransformBase.cxx" />
+    <ClCompile Include="Modules\ImageFilter\src\FastReadImage.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\FloatImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\ImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\ImageReadObject.cxx" />
+    <ClCompile Include="Modules\ImageFilter\src\LabelImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\LoadImageHead.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\ReadImageHead.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\SliceCBImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\SliceCharImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\SliceFloatImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\SliceImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageFilter\src\SliceLabelImageFilter.cpp" />
+    <ClCompile Include="Modules\ImageRendering\src\RenderingWindowsContorler.cpp" />
+    <ClCompile Include="Modules\ImageRendering\src\VolumeMathematicalGeometry.cpp" />
+    <ClCompile Include="Tools\src\CommonTools.cpp" />
+    <ClCompile Include="Tools\src\CpuUtilzation.cpp" />
+    <ClCompile Include="Tools\src\UserTools.cpp" />
+    <ClCompile Include="TraceLog\src\BasicTraceLog.cpp" />
+    <ClCompile Include="UI\db\src\UISqlMgr.cpp" />
+    <ClCompile Include="UI\FileWidget\Graphics\src\ImageGraphicsView.cpp" />
+    <ClCompile Include="UI\FileWidget\TableWidget\src\CasePlanTableWidget.cpp" />
+    <ClCompile Include="UI\FileWidget\TableWidget\src\PatientCaseTableWidget.cpp" />
+    <ClCompile Include="UI\FileWidget\ToolDialog\PatientCaseAdd\src\PatientCaseAddDialog.cpp" />
+    <ClCompile Include="UI\FileWidget\ToolDialog\PatientCaseEdit\src\PatientCaseEditDialog.cpp" />
+    <ClCompile Include="UI\FileWidget\ToolDialog\Warning\src\Warning.cpp" />
+    <ClCompile Include="UI\LoginWidget\src\AboutUs.cpp" />
+    <ClCompile Include="UI\LoginWidget\src\LoginPanel.cpp" />
+    <ClCompile Include="UI\LoginWidget\src\LoginWidget.cpp" />
+    <ClCompile Include="UI\LoginWidget\src\TwoDcode.cpp" />
+    <ClCompile Include="UI\MainWindow\src\AddDateWidget.cpp" />
+    <ClCompile Include="UI\MainWindow\src\CloseDialog.cpp" />
+    <ClCompile Include="UI\MainWindow\src\DicomWidget.cpp" />
+    <ClCompile Include="UI\ModuleWidget\src\ModuleWidget.cpp" />
+    <ClCompile Include="UI\RenderWidget\VP\VPMapping\src\GradientOpacityGraphicsView.cpp" />
+    <ClCompile Include="UI\RenderWidget\Info\src\InfoTableWidget.cpp" />
+    <ClCompile Include="UI\FileWidget\Widget\src\FileWidget.cpp" />
+    <ClCompile Include="UI\MainWindow\src\MainWindow.cpp" />
+    <ClCompile Include="UI\RenderWidget\Render\src\PathMgr.cpp" />
+    <ClCompile Include="UI\RenderWidget\Info\src\PathTableWidget.cpp" />
+    <ClCompile Include="UI\RenderWidget\Render\src\RenderWidget.cpp" />
+    <ClCompile Include="UI\MainWindow\src\SaveWidget.cpp" />
+    <ClCompile Include="UI\RenderWidget\VP\VPMapping\src\ScalarColorMappingGraphicsView.cpp" />
+    <ClCompile Include="UI\RenderWidget\VP\VPMapping\src\ScalarOpacityMappingGraphicsView.cpp" />
+    <ClCompile Include="UI\FileWidget\TableWidget\src\RawDataTableWidget.cpp" />
+    <ClCompile Include="UI\RenderWidget\VP\VPSetting\src\VPSettingWidget.cpp" />
+    <ClCompile Include="UI\RenderWidget\Render\src\VTKShow3DWidget.cpp" />
+    <ClCompile Include="UI\RenderWidget\Render\src\VTKGraphicsView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="UI\MainWindow\include\MainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="UI\FileWidget\ToolDialog\PatientCaseAdd\form\PatientCaseAddDialog.ui" />
+    <QtUic Include="UI\FileWidget\ToolDialog\PatientCaseEdit\form\PatientCaseEditDialog.ui" />
+    <QtUic Include="UI\FileWidget\ToolDialog\RawDataFromPACS\form\RawDataFromPACSDialog.ui" />
+    <QtUic Include="UI\FileWidget\ToolDialog\Warning\form\Warning.ui" />
+    <QtUic Include="UI\LoadWidget\form\LoadWidget.ui" />
+    <QtUic Include="UI\LoginWidget\form\AboutUs.ui" />
+    <QtUic Include="UI\LoginWidget\form\TwoDcode.ui" />
+    <QtUic Include="UI\LoginWidget\form\LoginPanel.ui" />
+    <QtUic Include="UI\LoginWidget\form\LoginWidget.ui" />
+    <QtUic Include="UI\MainWindow\form\AddDateWidget.ui">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtUic Include="UI\MainWindow\form\CloseDialog.ui" />
+    <QtUic Include="UI\MainWindow\form\DicomWidget.ui">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtUic Include="UI\FileWidget\Widget\form\FileWidget.ui">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtUic Include="UI\MainWindow\form\MainWindow.ui" />
+    <QtUic Include="UI\ModuleWidget\form\ModuleWidget.ui" />
+    <QtUic Include="UI\RenderWidget\Render\form\RenderWidget.ui">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtUic Include="UI\MainWindow\form\SaveWidget.ui">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtUic Include="UI\RenderWidget\VP\VPSetting\from\VPSettingWidget.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common\include\CommonFunction.h" />
+    <ClInclude Include="Common\include\FrameCommonFunctionMacro.h" />
+    <ClInclude Include="Common\include\FrameworkCommon.h" />
+    <ClInclude Include="Common\include\FrameworkDefine.h" />
+    <ClInclude Include="Common\include\FrameworkErrorCode.h" />
+    <ClInclude Include="Common\include\FrameworkLibrary.h" />
+    <ClInclude Include="Common\include\FrameWorkType.h" />
+    <ClInclude Include="Common\include\ParseVariableparameter.h" />
+    <ClInclude Include="ContorlLayer\Communicator\include\CommonLayer.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\CalibrationController.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\DisplayMessage.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\Geometry.hpp" />
+    <ClInclude Include="ContorlLayer\Controler\include\ImageFilterContorller.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\MathematicalGeometryCTL.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\RendringControllerBase.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\RendringCTL.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\RoutePlanningContorller.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\VolumeProperty.h" />
+    <ClInclude Include="ContorlLayer\Controler\include\VolumeRenderController.h" />
+    <ClInclude Include="ContorlLayer\DB\include\DicomHeadTable.h" />
+    <ClInclude Include="ContorlLayer\Signal\Sender.hxx" />
+    <ClInclude Include="ContorlLayer\Signal\SignalBaseObject.hxx" />
+    <ClInclude Include="ContorlLayer\Slot\Receiver.hxx" />
+    <ClInclude Include="ContorlLayer\Slot\SlotBaseObject.hxx" />
+    <ClInclude Include="DataBase\base\include\BasicResultSet.h" />
+    <ClInclude Include="DataBase\base\include\CreateTableColum.h" />
+    <ClInclude Include="DataBase\base\include\DataBaseClassMacro.h" />
+    <ClInclude Include="DataBase\base\include\DataBaseCommon.h" />
+    <ClInclude Include="DataBase\base\include\DataBaseObject.h" />
+    <ClInclude Include="DataBase\base\include\DataBaseProfiles.h" />
+    <ClInclude Include="DataBase\base\include\DataBaseSelectColumn.h" />
+    <ClInclude Include="DataBase\base\include\DBContentClause.h" />
+    <ClInclude Include="DataBase\base\include\DBContentValues.h" />
+    <ClInclude Include="DataBase\DataBaseCommon\DataBaseCommunicator.h" />
+    <ClInclude Include="DataBase\mysql\include\MysqlBasicObjectManager.h" />
+    <ClInclude Include="DataBase\mysql\include\MysqlBDatebaseObject.h" />
+    <ClInclude Include="DataBase\mysql\include\MysqlDataBase.h" />
+    <ClInclude Include="DataBase\mysql\include\MysqlResultSet.h" />
+    <ClInclude Include="DataBase\sqlite\include\SqliteDataBase.h" />
+    <ClInclude Include="DataBase\sqlite\include\SqliteResultSet.h" />
+    <ClInclude Include="DataSet\Container\ContainerDefine.h" />
+    <ClInclude Include="DataSet\Container\KeyInPoint2d.hxx" />
+    <ClInclude Include="DataSet\Container\KeyinPoint3d.hxx" />
+    <ClInclude Include="DataSet\Container\KeyinVector2.hxx" />
+    <ClInclude Include="DataSet\Container\KeyinVector3.hxx" />
+    <ClInclude Include="DataSet\Container\MathGeometry.h" />
+    <ClInclude Include="DataSet\Dicom\BasicDicomObject.hxx" />
+    <ClInclude Include="DataSet\Dicom\DicomValueObject.hxx" />
+    <ClInclude Include="DataSet\include\MathGeometryLine.h" />
+    <ClInclude Include="DataSet\include\MathGeometryNode.h" />
+    <ClInclude Include="DataSet\include\UICommunicationData.h" />
+    <ClInclude Include="GeneratedFiles\ui_AboutUs.h" />
+    <ClInclude Include="GeneratedFiles\ui_AddDateWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_CloseDialog.h" />
+    <ClInclude Include="GeneratedFiles\ui_DicomWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_FileWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_LoadWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_LoginPanel.h" />
+    <ClInclude Include="GeneratedFiles\ui_LoginWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_MainWindow.h" />
+    <ClInclude Include="GeneratedFiles\ui_ModuleWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_PatientCaseAddDialog.h" />
+    <ClInclude Include="GeneratedFiles\ui_PatientCaseEditDialog.h" />
+    <ClInclude Include="GeneratedFiles\ui_RenderWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_SaveWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_TwoDcode.h" />
+    <ClInclude Include="GeneratedFiles\ui_VPSettingWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_Warning.h" />
+    <ClInclude Include="main\include\FrameworkInitialize.h" />
+    <ClInclude Include="main\include\pch.h" />
+    <ClInclude Include="MemoryPool\include\MemoryChunk.h" />
+    <ClInclude Include="MemoryPool\include\MemoryManager.h" />
+    <ClInclude Include="MemoryPool\include\MemoryPool.h" />
+    <ClInclude Include="MemoryPool\include\MemoryPrivateHeader.h" />
+    <ClInclude Include="MemoryPool\include\StaticMemory.h" />
+    <ClInclude Include="Modules\CalibrationPlate\include\BasicImageProcessing.h" />
+    <ClInclude Include="Modules\CalibrationPlate\include\CalibrationPlateCommon.hpp" />
+    <ClInclude Include="Modules\CalibrationPlate\include\CalibrationPrecisionParameter.hpp" />
+    <ClInclude Include="Modules\CalibrationPlate\include\ClearPointProcessing.h" />
+    <ClInclude Include="Modules\CalibrationPlate\include\DevicationFilterInterface.hpp" />
+    <ClInclude Include="Modules\CalibrationPlate\include\ExternalCalibrationProcessing.h" />
+    <ClInclude Include="Modules\CalibrationPlate\include\HullControlParameterInterface.hpp" />
+    <ClInclude Include="Modules\CalibrationPlate\include\ImagePointsFilterProcessing.h" />
+    <ClInclude Include="Modules\CalibrationPlate\include\OrderingProcessing.h" />
+    <ClInclude Include="Modules\CalibrationPlate\include\SobleParameterInterface.hpp" />
+    <ClInclude Include="Modules\CalibrationPlate\include\ThresholdParameterInterface.hpp" />
+    <ClInclude Include="Modules\CommonModule\include\CommonModulesLibrary.hxx" />
+    <ClInclude Include="Modules\CommonModule\include\ItkCommonDefine.hxx" />
+    <ClInclude Include="Modules\CommonModule\include\ItkImportLibrary.hxx" />
+    <ClInclude Include="Modules\CommonModule\include\ModulesCommonMacro.h" />
+    <ClInclude Include="Modules\CommonModule\include\VtkCommonDefine.h" />
+    <ClInclude Include="Modules\Communicator\include\CommonImageFilterCtl.hxx" />
+    <ClInclude Include="Modules\ImageFilter\include\BasicImageFilterObject.hxx" />
+    <ClInclude Include="Modules\ImageFilter\include\CBImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\CharImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\ClassImageFilterMacro.hxx" />
+    <ClInclude Include="Modules\ImageFilter\include\DataTransformBase.hxx" />
+    <ClInclude Include="Modules\ImageFilter\include\FastReadImage.h" />
+    <ClInclude Include="Modules\ImageFilter\include\FloatImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\ImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\ImageReadObject.hxx" />
+    <ClInclude Include="Modules\ImageFilter\include\LabelImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\LoadImageHead.h" />
+    <ClInclude Include="Modules\ImageFilter\include\ReadImageHead.h" />
+    <ClInclude Include="Modules\ImageFilter\include\ReconditeImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\SliceCBImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\SliceCharImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\SliceFloatImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\SliceImageFilter.h" />
+    <ClInclude Include="Modules\ImageFilter\include\SliceLabelImageFilter.h" />
+    <ClInclude Include="Modules\ImageRendering\include\RenderingWindowsContorler.h" />
+    <ClInclude Include="Modules\ImageRendering\include\VolumeMathematicalGeometry.h" />
+    <ClInclude Include="Tools\include\CommonTools.h" />
+    <ClInclude Include="Tools\include\CpuUtilzation.h" />
+    <ClInclude Include="Tools\include\UserTools.h" />
+    <ClInclude Include="TraceLog\include\BasicTraceLog.h" />
+    <ClInclude Include="TraceLog\include\TraceLogExporter.h" />
+    <ClInclude Include="UI\db\include\UISqlMgr.h" />
+    <QtMoc Include="UI\FileWidget\ToolDialog\PatientCaseEdit\include\PatientCaseEditDialog.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\FileWidget\ToolDialog\Warning\include\Warning.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\FileWidget\ToolDialog\PatientCaseAdd\include\PatientCaseAddDialog.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\LoginWidget\include\AboutUs.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\LoginWidget\include\TwoDcode.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\LoginWidget\include\LoginPanel.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\LoginWidget\include\LoginWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\MainWindow\include\CloseDialog.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\ModuleWidget\include\ModuleWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\FileWidget\Graphics\include\ImageGraphicsView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\FileWidget\TableWidget\include\CasePlanTableWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\FileWidget\TableWidget\include\PatientCaseTableWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\VP\VPMapping\include\GradientOpacityGraphicsView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\VP\VPMapping\include\ScalarColorMappingGraphicsView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\VP\VPMapping\include\ScalarOpacityMappingGraphicsView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\VP\VPSetting\include\VPSettingWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\Render\include\PathMgr.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\UIGeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\Info\include\PathTableWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\UIGeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\Info\include\InfoTableWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\UIGeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\FileWidget\TableWidget\include\RawDataTableWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\Render\include\VTKShow3DWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\Render\include\VTKGraphicsView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\UIGeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\RenderWidget\Render\include\RenderWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_MBCS</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\UIGeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\FileWidget\Widget\include\FileWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\MainWindow\include\SaveWidget.h">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\GeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\GeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\MainWindow\include\DicomWidget.h">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\GeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\GeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtMoc Include="UI\MainWindow\include\AddDateWidget.h">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\GeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\UI\GeneratedFiles;.;$(QTDIR)\include;.\UI\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\GeneratedFiles</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+    <None Include="Framework.db" />
+    <None Include="keepalive.dll" />
+    <None Include="keepalive.pdb" />
+    <None Include="libeay32.dll" />
+    <None Include="libmysql.dll" />
+    <None Include="metadata_cache.dll" />
+    <None Include="metadata_cache.pdb" />
+    <None Include="mysqlcppconn-7-vs14.dll" />
+    <None Include="mysqlcppconn8-1-vs14.dll" />
+    <None Include="mysql_protocol.dll" />
+    <None Include="mysql_protocol.pdb" />
+    <None Include="plugin\keepalive.dll" />
+    <None Include="plugin\keepalive.pdb" />
+    <None Include="plugin\libmysql.dll" />
+    <None Include="plugin\metadata_cache.dll" />
+    <None Include="plugin\metadata_cache.pdb" />
+    <None Include="plugin\mysql_protocol.dll" />
+    <None Include="plugin\mysql_protocol.pdb" />
+    <None Include="plugin\routing.dll" />
+    <None Include="plugin\routing.pdb" />
+    <None Include="qt_zh_CN.qm" />
+    <None Include="routing.dll" />
+    <None Include="routing.pdb" />
+    <None Include="sqlite3.dll" />
+    <None Include="ssleay32.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libmysql.lib" />
+    <Library Include="mysqlclient.lib" />
+    <Library Include="mysqlrouter_lib.lib" />
+    <Library Include="mysqlservices.lib" />
+    <Library Include="plugin\libmysql.lib" />
+    <Library Include="plugin\mysqlclient.lib" />
+    <Library Include="plugin\mysqlrouter_lib.lib" />
+    <Library Include="plugin\mysqlservices.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="UI\img\RenderWidget\btnSwitchLayer_closed.jpg" />
+    <Image Include="UI\img\RenderWidget\btnSwitchLayer_opened.jpg" />
+    <Image Include="UI\img\RenderWidget\orientation-z.jpg" />
+    <Image Include="UI\img\RenderWidget\orientation_x.jpg" />
+    <Image Include="UI\img\RenderWidget\orientation_x.png" />
+    <Image Include="UI\img\RenderWidget\orientation_y.jpg" />
+    <Image Include="UI\img\RenderWidget\orientation_y.png" />
+    <Image Include="UI\img\RenderWidget\orientation_z.jpg" />
+    <Image Include="UI\img\RenderWidget\orientation_z.png" />
+    <Image Include="x64\Debug\img\RenderWidget\btnSwitchLayer_closed.jpg" />
+    <Image Include="x64\Debug\img\RenderWidget\btnSwitchLayer_opened.jpg" />
+    <Image Include="x64\Debug\img\RenderWidget\orientation-z.jpg" />
+    <Image Include="x64\Debug\img\RenderWidget\orientation_x.jpg" />
+    <Image Include="x64\Debug\img\RenderWidget\orientation_y.jpg" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="msvc2017_64" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

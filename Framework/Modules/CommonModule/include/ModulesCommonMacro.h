@@ -1,0 +1,11 @@
+#pragma once
+#ifndef __MODULESCOMMONMACRO_H
+#define __MODULESCOMMONMACRO_H
+
+#define COORDINATE_AXIS_X    0
+#define COORDINATE_AXIS_Y    1
+#define COORDINATE_AXIS_Z    2
+
+
+
+#endif // !__MODULESCOMMONMACRO_H
